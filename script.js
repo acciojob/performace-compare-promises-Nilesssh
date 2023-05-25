@@ -47,35 +47,3 @@ function fetchDataWithPromiseAny(apiUrls) {
     });
 }
 
-// Displaying results on the webpage
-const table = document.getElementById("results-table");
-
-// Function to add a row to the table
-function addRow(method, timeTaken) {
-  const row = table.insertRow();
-  const methodCell = row.insertCell();
-  const timeTakenCell = row.insertCell();
-
-  methodCell.textContent = method;
-  timeTakenCell.textContent = timeTaken;
-}
-
-// Fetch data using Promise.all and display the time taken
-fetchDataWithPromiseAll(apiUrls)
-  .then((timeTaken) => {
-    addRow("Promise.all", timeTaken);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-    addRow("Promise.all", "Error");
-  });
-
-// Fetch data using Promise.any and display the time taken
-fetchDataWithPromiseAny(apiUrls)
-  .then((timeTaken) => {
-    addRow("Promise.any", timeTaken);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-    addRow("Promise.any", "Error");
-  });
