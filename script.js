@@ -20,6 +20,7 @@ function fetchDataWithPromiseAll(apiUrls) {
     .then(() => {
       const endTime = new Date().getTime();
       const timeTaken = endTime - startTime;
+		document.querySelector("#output-all").textContent = timeTaken ;
       return timeTaken;
     })
     .catch((error) => {
@@ -37,6 +38,7 @@ function fetchDataWithPromiseAny(apiUrls) {
     .then(() => {
       const endTime = new Date().getTime();
       const timeTaken = endTime - startTime;
+		document.querySelector("#output-any").textContent = timeTaken ;
       return timeTaken;
     })
     .catch((error) => {
